@@ -14,14 +14,14 @@ with open(file_name,'rt') as fpt:
 
 # print(classLabels)
 
-img = cv.imread('bike.jpg')
+img = cv.imread(r'D:\3D-Object-Detection\Photos\r.jpeg')
 
 model.setInputSize(320,320)
 model.setInputScale(1.0/127.5)
 model.setInputMean((127.5,127.5,127.5))
 model.setInputSwapRB(True)
 
-ClassIndex,confidence,bbox = model.detect(img,confThreshold=0.5)
+ClassIndex,confidence,bbox = model.detect(img,confThreshold=0.7)
 # print(ClassIndex)
 
 for ClassInd, conf, boxes in zip(ClassIndex.flatten(),confidence.flatten(),bbox):
