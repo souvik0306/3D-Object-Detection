@@ -1,7 +1,8 @@
 import cv2 as cv
+import numpy as np
 
-config_file = 'ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt'
-frozen_model = 'frozen_inference_graph.pb'
+config_file = (r'D:\3D-Object-Detection\Coco\ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt')
+frozen_model = (r'D:\3D-Object-Detection\Coco\frozen_inference_graph.pb')
 
 model = cv.dnn_DetectionModel(frozen_model, config_file)
 
@@ -12,7 +13,7 @@ with open(file_name, 'rt') as fpt:
 
 # print(classLabels)
 
-capture = cv.VideoCapture(r'D:\3D-Object-Detection\street2.wmv')
+capture = cv.VideoCapture(r'D:\3D-Object-Detection\Photos\street2.wmv')
 while True:
     isTrue, img = capture.read()
     width, height = 700, 500
@@ -27,6 +28,7 @@ while True:
     if len(ClassIndex) != 0:
         for ClassInd, conf, boxes in zip(ClassIndex.flatten(), confidence.flatten(), bbox):
             if (ClassInd <= 80):
+         
                 cv.rectangle(img, boxes, (255, 0, 0), 2)
                 cv.putText(img, classLabels[int(ClassInd - 1)], (boxes[0] + 10, boxes[1] + 40), cv.FONT_HERSHEY_PLAIN,
                            3, color=(255, 0, 0), thickness=3)
@@ -36,5 +38,3 @@ while True:
             break
 capture.release()
 capture.destroAllWindows
-
-# img = cv.cvtColor(img,cv.COLOR_BGR2RGB)
