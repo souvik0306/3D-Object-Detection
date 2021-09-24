@@ -2,8 +2,9 @@ import cv2 as cv
 import matplotlib.pyplot as plt
 # import tensorflow as tf
 
-config_file = 'ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt'
-frozen_model = 'frozen_inference_graph.pb'
+config_file = (r'D:\3D-Object-Detection\Coco\ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt')
+frozen_model = (r'D:\3D-Object-Detection\Coco\frozen_inference_graph.pb')
+
 
 model = cv.dnn_DetectionModel(frozen_model,config_file)
 
@@ -12,9 +13,9 @@ file_name = 'Labels.txt'
 with open(file_name,'rt') as fpt:
     classLabels = fpt.read().rstrip('\n').split('\n')
 
-# print(classLabels)
+print(classLabels)
 
-img = cv.imread(r'D:\3D-Object-Detection\Photos\r.jpeg')
+img = cv.imread(r'D:\3D-Object-Detection\Photos\bike.jpg')
 
 model.setInputSize(320,320)
 model.setInputScale(1.0/127.5)
@@ -22,7 +23,7 @@ model.setInputMean((127.5,127.5,127.5))
 model.setInputSwapRB(True)
 
 ClassIndex,confidence,bbox = model.detect(img,confThreshold=0.7)
-# print(ClassIndex)
+print(ClassIndex)
 
 for ClassInd, conf, boxes in zip(ClassIndex.flatten(),confidence.flatten(),bbox):
     cv.rectangle(img,boxes,(255,0,0),2)
