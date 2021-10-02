@@ -3,6 +3,8 @@ import numpy as np
 
 config_file = (r'D:\3D-Object-Detection\Coco\ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt')
 frozen_model = (r'D:\3D-Object-Detection\Coco\frozen_inference_graph.pb')
+out = cv.VideoWriter('numbered.mp4', cv.VideoWriter_fourcc(*'m', 'p', '4', 'v'), 20, (400, 400))
+
 
 model = cv.dnn_DetectionModel(frozen_model, config_file)
 
@@ -13,7 +15,7 @@ with open(file_name, 'rt') as fpt:
 
 # print(classLabels)
 
-capture = cv.VideoCapture(0)#r'D:\3D-Object-Detection\Photos\street2.wmv'
+capture = cv.VideoCapture(r'D:\3D-Object-Detection\Photos\street3.wmv')#r'D:\3D-Object-Detection\Photos\street2.wmv'
 while True:
     isTrue, img = capture.read()
     width, height = 700, 500
@@ -34,7 +36,10 @@ while True:
                            3, color=(255, 0, 0), thickness=3)
 
         cv.imshow('Video', img)
+        out.write(img)
+
         if cv.waitKey(1) & 0xFF == 27:
             break
 capture.release()
+out.release()
 capture.destroAllWindows

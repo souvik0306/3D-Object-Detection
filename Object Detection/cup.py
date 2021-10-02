@@ -32,6 +32,7 @@ with mp_objectron.Objectron(static_image_mode=False, max_num_objects=3, min_dete
         fps = 1 / Total
 
         cv.imshow('MediaPipe', img)
+
         if cv.waitKey(5) & 0xFF == 27:
             break
 
