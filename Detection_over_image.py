@@ -32,6 +32,7 @@ for ClassInd, conf, boxes in zip(ClassIndex.flatten(),confidence.flatten(),bbox)
 width, height = 700,500
 img = cv.resize(img,(width,height))
 cv.imshow("Bike",img)
+cv.imwrite("Result_Bike.jpg",img)
 cv.waitKey(0)
 
 

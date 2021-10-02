@@ -13,7 +13,7 @@ with open(file_name, 'rt') as fpt:
 
 # print(classLabels)
 
-capture = cv.VideoCapture(r'D:\3D-Object-Detection\Photos\street2.wmv')
+capture = cv.VideoCapture(0)#r'D:\3D-Object-Detection\Photos\street2.wmv'
 while True:
     isTrue, img = capture.read()
     width, height = 700, 500
@@ -34,7 +34,7 @@ while True:
                            3, color=(255, 0, 0), thickness=3)
 
         cv.imshow('Video', img)
-        if cv.waitKey(20) & 0xFF == ord('d'):
+        if cv.waitKey(1) & 0xFF == 27:
             break
 capture.release()
 capture.destroAllWindows
