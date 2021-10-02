@@ -3,7 +3,7 @@ import numpy as np
 
 config_file = (r'D:\3D-Object-Detection\Coco\ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt')
 frozen_model = (r'D:\3D-Object-Detection\Coco\frozen_inference_graph.pb')
-out = cv.VideoWriter('numbered.mp4', cv.VideoWriter_fourcc(*'m', 'p', '4', 'v'), 20, (400, 400))
+out = cv.VideoWriter('Result.mp4', cv.VideoWriter_fourcc(*'m', 'p', '4', 'v'), 20, (700, 500))
 
 
 model = cv.dnn_DetectionModel(frozen_model, config_file)
@@ -35,9 +35,9 @@ while True:
                 cv.putText(img, classLabels[int(ClassInd - 1)], (boxes[0] + 10, boxes[1] + 40), cv.FONT_HERSHEY_PLAIN,
                            3, color=(255, 0, 0), thickness=3)
 
-        cv.imshow('Video', img)
         out.write(img)
-
+        cv.imshow('Video', img)
+        
         if cv.waitKey(1) & 0xFF == 27:
             break
 capture.release()
