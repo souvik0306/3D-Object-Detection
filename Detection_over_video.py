@@ -9,13 +9,13 @@ out = cv.VideoWriter('Result.mp4', cv.VideoWriter_fourcc(*'m', 'p', '4', 'v'), 2
 model = cv.dnn_DetectionModel(frozen_model, config_file)
 
 classLabels = []
-file_name = 'Labels.txt'
+file_name = (r'D:\3D-Object-Detection\Labels.txt')
 with open(file_name, 'rt') as fpt:
     classLabels = fpt.read().rstrip('\n').split('\n')
 
 # print(classLabels)
 
-capture = cv.VideoCapture(r'D:\3D-Object-Detection\Photos\street3.wmv')#r'D:\3D-Object-Detection\Photos\street2.wmv'
+capture = cv.VideoCapture(0)#r'D:\3D-Object-Detection\Photos\street2.wmv'
 while True:
     isTrue, img = capture.read()
     width, height = 700, 500
