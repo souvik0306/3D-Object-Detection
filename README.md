@@ -21,3 +21,4 @@
 
 ## ***References*** -
 1. The Coding Lib's MediaPipe Tutorial - [YouTube](https://www.youtube.com/watch?v=f-Ibri14KMY&ab_channel=TheCodingLib)
+2. The Coding Lib's Monocular Camera Depth Tutorial - [YouTube](https://youtu.be/jid-53uPQr0)
