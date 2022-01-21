@@ -20,4 +20,4 @@
 
 
 ## ***References*** -
-1. The Coding Lab's MediaPipe Tutorial - [YouTube](https://www.youtube.com/watch?v=f-Ibri14KMY&ab_channel=TheCodingLib)
+1. The Coding Lib's MediaPipe Tutorial - [YouTube](https://www.youtube.com/watch?v=f-Ibri14KMY&ab_channel=TheCodingLib)
