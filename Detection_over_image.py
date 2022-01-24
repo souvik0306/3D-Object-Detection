@@ -15,7 +15,7 @@ with open(file_name,'rt') as fpt:
 
 print(classLabels)
 
-img = cv.imread(r'D:\3D-Object-Detection\Photos\bike.jpg')
+img = cv.imread(r'Photos\test2.png')
 
 model.setInputSize(320,320)
 model.setInputScale(1.0/127.5)
@@ -31,8 +31,8 @@ for ClassInd, conf, boxes in zip(ClassIndex.flatten(),confidence.flatten(),bbox)
 
 width, height = 700,500
 img = cv.resize(img,(width,height))
-cv.imshow("Bike",img)
-cv.imwrite("Result_Bike.jpg",img)
+cv.imshow("Result",img)
+cv.imwrite("Result.jpg",img)
 cv.waitKey(0)
 
 

@@ -42,4 +42,4 @@ while True:
             break
 capture.release()
 out.release()
-capture.destroAllWindows
+cv.destroyAllWindows()
