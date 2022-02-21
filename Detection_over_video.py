@@ -15,7 +15,7 @@ with open(file_name, 'rt') as fpt:
 
 # print(classLabels)
 
-capture = cv.VideoCapture(r'D:\3D-Object-Detection\Photos\videoplayback.mp4')
+capture = cv.VideoCapture(r'WhatsApp Video 2021-12-07 at 15.27.55.mp4')
 while True:
     isTrue, img = capture.read()
     width, height = 700, 500
@@ -26,7 +26,7 @@ while True:
     model.setInputMean((127.5, 127.5, 127.5))
     model.setInputSwapRB(True)
 
-    ClassIndex, confidence, bbox = model.detect(img, confThreshold=0.5)
+    ClassIndex, confidence, bbox = model.detect(img, confThreshold=0.55)
     if len(ClassIndex) != 0:
         for ClassInd, conf, boxes in zip(ClassIndex.flatten(), confidence.flatten(), bbox):
             if (ClassInd <= 80):
